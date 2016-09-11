@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  get "projects/:projectId/lists", to: "projects#lists"
+
+  resources :projects do
+    resources :lists do
+      resources :cards
+    end
+  end
+  
 end

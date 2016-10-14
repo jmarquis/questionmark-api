@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   skip_before_action :authenticate
 
   def index
-    render status: session[:user_id] ? 200 : 403
+    render status: session[:user_id] ? 200 : 403, json: User.find(session[:user_id])
   end
 
   def create

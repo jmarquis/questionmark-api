@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create]
 
-  resources :projects do
-    resources :lists do
-      resources :cards
+  resources :workspaces, shallow: true do
+    resources :projects do
+      resources :lists do
+        resources :cards
+      end
     end
   end
 

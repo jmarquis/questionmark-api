@@ -7,4 +7,9 @@ class CardsController < ApplicationController
     }
   end
 
+  def create
+    new_card = List.find(params[:list_id]).cards.create({ title: params[:title] })
+    render json: new_card
+  end
+
 end

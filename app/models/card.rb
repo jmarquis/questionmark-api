@@ -20,5 +20,9 @@
 #
 
 class Card < ApplicationRecord
+
   belongs_to :list
+
+  validates_format_of :title, without: /\n/
+
 end
